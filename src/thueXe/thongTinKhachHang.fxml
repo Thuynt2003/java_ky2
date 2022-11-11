@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+
+      <Text layoutX="213.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông tin khách hàng">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="21.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Khách Hàng :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="19.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên Khách Hàng :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="24.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa Chỉ  :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="24.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField layoutX="205.0" layoutY="77.0" promptText="ID">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="205.0" layoutY="147.0" promptText="Name">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="205.0" layoutY="213.0" promptText="Address">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="205.0" layoutY="283.0" promptText="Email">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button layoutX="471.0" layoutY="330.0" mnemonicParsing="false" text="submit" />
+      <Button layoutX="486.0" layoutY="40.0" mnemonicParsing="false" text="check xe" />
+      <Button layoutX="403.0" layoutY="330.0" mnemonicParsing="false" text="Trả Xe" />
+
+   </children>
+</Pane>
