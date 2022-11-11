@@ -5,7 +5,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
 
@@ -45,7 +44,7 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button layoutX="492.0" layoutY="325.0" mnemonicParsing="false" text="Hoàn Tất" />
+      <Button layoutX="492.0" layoutY="325.0" mnemonicParsing="false" text="Hoàn Thành" />
 
    </children>
 </Pane>
