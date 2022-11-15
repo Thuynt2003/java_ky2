@@ -12,7 +12,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -41,7 +40,7 @@ public class ListController implements Initializable {
 
         try {
             Connector connector = new Connector();
-            String sql = "select * from student";
+            String sql ="select * from student";
             ResultSet rs = connector.query(sql);
 
             while (rs.next()) {

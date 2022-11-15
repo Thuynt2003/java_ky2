@@ -1,22 +1,28 @@
 package dataase;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 
 public class Connector {
-    public final static String connectionString = "jdbc:mysql://localhost:3306/student";
+    public final static String connectionString = "jdbc:mysql://localhost:3306/thuexe";
     public final static String user = "root";
-    public final static String pwd = "root";
+    public final static String pwd = ""; // xampp: ""   mamp: "root"
 
     private Connection conn;
 
-    public Connector()throws Exception {
+    private static Connector instance;
+
+    public static Connector getInstance() throws Exception{
+        if(instance == null){
+            instance = new Connector();
+        }
+        return  instance;
+    }
+
+    private Connector() throws Exception{
         Class.forName("com.mysql.jdbc.Driver");
-            this.conn = DriverManager.getConnection(connectionString, user, pwd);
+        this.conn = DriverManager.getConnection(connectionString, user, pwd);
     }
 
     private Statement getStatement() throws Exception{
@@ -27,8 +33,41 @@ public class Connector {
         return this.getStatement().executeQuery(sql);
     }
 
-    public boolean execute(String sql, ArrayList parameters) throws Exception{
+    public boolean execute(String sql) throws Exception{
         return this.getStatement().executeUpdate(sql) > 0;
+    }
+
+    // prepared statement
+    private PreparedStatement getPreparedStatement(String sql) throws Exception{
+        return this.conn.prepareStatement(sql);
+    }
+
+    public ResultSet query(String sql, ArrayList parameters) throws Exception{
+        PreparedStatement stt = this.getPreparedStatement(sql);
+        for(int i=0;i<parameters.size();i++){
+            if(parameters.get(i) instanceof String){
+                stt.setString(i+1,(String)parameters.get(i));
+            }else if(parameters.get(i) instanceof Integer){
+                stt.setInt(i+1,(int) parameters.get(i));
+            }else if(parameters.get(i) instanceof Double){
+                stt.setDouble(i+1,(double) parameters.get(i));
+            }
+        }
+        return stt.executeQuery();
+    }
+
+    public boolean execute(String sql, ArrayList parameters) throws Exception{
+        PreparedStatement stt = this.getPreparedStatement(sql);
+        for(int i=0;i<parameters.size();i++){
+            if(parameters.get(i) instanceof String){
+                stt.setString(i+1,(String)parameters.get(i));
+            }else if(parameters.get(i) instanceof Integer){
+                stt.setInt(i+1,(int) parameters.get(i));
+            }else if(parameters.get(i) instanceof Double){
+                stt.setDouble(i+1,(double) parameters.get(i));
+            }
+        }
+        return stt.executeUpdate() > 0;
     }
 }
 
