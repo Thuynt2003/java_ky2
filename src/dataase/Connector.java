@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 public class Connector {
-    public final static String connectionString = "jdbc:mysql://localhost:3306/thuexe";
+    public final static String connectionString = "jdbc:mysql://localhost:3306/student";
     public final static String user = "root";
     public final static String pwd = ""; // xampp: ""   mamp: "root"
 
@@ -20,7 +20,7 @@ public class Connector {
         return  instance;
     }
 
-    private Connector() throws Exception{
+    public Connector() throws Exception{
         Class.forName("com.mysql.jdbc.Driver");
         this.conn = DriverManager.getConnection(connectionString, user, pwd);
     }
@@ -33,7 +33,7 @@ public class Connector {
         return this.getStatement().executeQuery(sql);
     }
 
-    public boolean execute(String sql) throws Exception{
+    public boolean execute(String sql, ArrayList parameters) throws Exception{
         return this.getStatement().executeUpdate(sql) > 0;
     }
 
@@ -56,7 +56,7 @@ public class Connector {
         return stt.executeQuery();
     }
 
-    public boolean execute(String sql, ArrayList parameters) throws Exception{
+    public void execute(String sql, ArrayList parameters) throws Exception{
         PreparedStatement stt = this.getPreparedStatement(sql);
         for(int i=0;i<parameters.size();i++){
             if(parameters.get(i) instanceof String){
@@ -67,7 +67,7 @@ public class Connector {
                 stt.setDouble(i+1,(double) parameters.get(i));
             }
         }
-        return stt.executeUpdate() > 0;
+        boolean b = stt.executeUpdate() > 0;
     }
 }
 

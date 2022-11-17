@@ -81,7 +81,7 @@ public class ListController implements Initializable {
     }
 
     public void createStudent(ActionEvent actionEvent) throws IOException {
-        Parent createForm = FXMLLoader.load(getClass().getResource("list/lisStudent.fxml"));
+        Parent createForm = FXMLLoader.load(getClass().getResource("lisStudent.fxml"));
         Scene sc = new Scene(createForm, 800, 600);
         Main.rootStage.setScene(sc);
     }
