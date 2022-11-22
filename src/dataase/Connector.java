@@ -67,7 +67,7 @@ public class Connector {
                 stt.setDouble(i+1,(double) parameters.get(i));
             }
         }
-        boolean b = stt.executeUpdate() > 0;
+        stt.executeUpdate();
     }
 }
 
